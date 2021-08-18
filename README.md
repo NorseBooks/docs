@@ -4,7 +4,7 @@ Documentation for the NorseBooks project. The project itself can be found [here]
 
 ## Deployment
 
-The documentation is hosted at [norsebooks.github.io/docs/](https://norsebooks.github.io.docs/).
+The documentation is hosted at [norsebooks.github.io/docs/](https://norsebooks.github.io/docs/).
 
 ## License
 
