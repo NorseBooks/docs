@@ -1,0 +1,6 @@
+# Other
+.vscode
+*.DS_Store
+
+# Coverage
+docs/coverage/coverage-summary.json
