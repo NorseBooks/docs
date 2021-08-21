@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NBResource | norsebooks</title>
+	<title>NBReport | norsebooks</title>
 	<meta name="description" content="Documentation for norsebooks">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">norsebooks</a>
 				</li>
 				<li>
-					<a href="../modules/resource_resource_interface.html">resource/resource.interface</a>
+					<a href="../modules/report_report_interface.html">report/report.interface</a>
 				</li>
 				<li>
-					<a href="resource_resource_interface.NBResource.html">NBResource</a>
+					<a href="report_report_interface.NBReport.html">NBReport</a>
 				</li>
 			</ul>
-			<h1>Interface NBResource</h1>
+			<h1>Interface NBReport</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Resource table schema.</p>
+						<p>Report table schema.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">NBResource</span>
+						<span class="target">NBReport</span>
 					</li>
 				</ul>
 			</section>
@@ -90,8 +90,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="resource_resource_interface.NBResource.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="resource_resource_interface.NBResource.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="report_report_interface.NBReport.html#bookID" class="tsd-kind-icon">bookID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="report_report_interface.NBReport.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="report_report_interface.NBReport.html#reason" class="tsd-kind-icon">reason</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="report_report_interface.NBReport.html#reportTime" class="tsd-kind-icon">report<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="report_report_interface.NBReport.html#userID" class="tsd-kind-icon">userID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,22 +103,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="bookID" class="tsd-anchor"></a>
+					<h3>bookID</h3>
+					<div class="tsd-signature tsd-kind-icon">bookID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/resource/resource.interface.ts#L5">src/services/resource/resource.interface.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/report/report.interface.ts#L6">src/services/report/report.interface.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/resource/resource.interface.ts#L6">src/services/resource/resource.interface.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/report/report.interface.ts#L5">src/services/report/report.interface.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reason" class="tsd-anchor"></a>
+					<h3>reason</h3>
+					<div class="tsd-signature tsd-kind-icon">reason<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/report/report.interface.ts#L8">src/services/report/report.interface.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reportTime" class="tsd-anchor"></a>
+					<h3>report<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">report<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/report/report.interface.ts#L9">src/services/report/report.interface.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="userID" class="tsd-anchor"></a>
+					<h3>userID</h3>
+					<div class="tsd-signature tsd-kind-icon">userID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/report/report.interface.ts#L7">src/services/report/report.interface.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,13 +193,13 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/password_reset_password_reset_service.html">password-<wbr>reset/password-<wbr>reset.service</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/report_report_interface.html">report/report.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/report_report_service.html">report/report.service</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/resource_resource_interface.html">resource/resource.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -206,13 +239,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="resource_resource_interface.NBResource.html" class="tsd-kind-icon">NBResource</a>
+						<a href="report_report_interface.NBReport.html" class="tsd-kind-icon">NBReport</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="resource_resource_interface.NBResource.html#name" class="tsd-kind-icon">name</a>
+								<a href="report_report_interface.NBReport.html#bookID" class="tsd-kind-icon">bookID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="resource_resource_interface.NBResource.html#value" class="tsd-kind-icon">value</a>
+								<a href="report_report_interface.NBReport.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="report_report_interface.NBReport.html#reason" class="tsd-kind-icon">reason</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="report_report_interface.NBReport.html#reportTime" class="tsd-kind-icon">report<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="report_report_interface.NBReport.html#userID" class="tsd-kind-icon">userID</a>
 							</li>
 						</ul>
 					</li>

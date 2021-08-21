@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SessionService | norsebooks</title>
+	<title>BookService | norsebooks</title>
 	<meta name="description" content="Documentation for norsebooks">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">norsebooks</a>
 				</li>
 				<li>
-					<a href="../modules/session_session_service.html">session/session.service</a>
+					<a href="../modules/book_book_service.html">book/book.service</a>
 				</li>
 				<li>
-					<a href="session_session_service.SessionService.html">SessionService</a>
+					<a href="book_book_service.BookService.html">BookService</a>
 				</li>
 			</ul>
-			<h1>Class SessionService</h1>
+			<h1>Class BookService</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Session table service.</p>
+						<p>Book table service.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SessionService</span>
+						<span class="target">BookService</span>
 					</li>
 				</ul>
 			</section>
@@ -90,26 +90,25 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="session_session_service.SessionService.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="book_book_service.BookService.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="session_session_service.SessionService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="book_book_service.BookService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#createSession" class="tsd-kind-icon">create<wbr>Session</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#deleteOldUserSessions" class="tsd-kind-icon">delete<wbr>Old<wbr>User<wbr>Sessions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#deleteSession" class="tsd-kind-icon">delete<wbr>Session</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#deleteUserSessions" class="tsd-kind-icon">delete<wbr>User<wbr>Sessions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#getSession" class="tsd-kind-icon">get<wbr>Session</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#getUserBySessionID" class="tsd-kind-icon">get<wbr>User<wbr>BySessionID</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#getUserSessions" class="tsd-kind-icon">get<wbr>User<wbr>Sessions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="session_session_service.SessionService.html#sessionExists" class="tsd-kind-icon">session<wbr>Exists</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#bookExists" class="tsd-kind-icon">book<wbr>Exists</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#createBook" class="tsd-kind-icon">create<wbr>Book</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#deleteBook" class="tsd-kind-icon">delete<wbr>Book</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#editBook" class="tsd-kind-icon">edit<wbr>Book</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#getBook" class="tsd-kind-icon">get<wbr>Book</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#getBookUser" class="tsd-kind-icon">get<wbr>Book<wbr>User</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_book_service.BookService.html#searchBooks" class="tsd-kind-icon">search<wbr>Books</a></li>
 							</ul>
 						</section>
 					</div>
@@ -121,13 +120,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Session<wbr>Service<span class="tsd-signature-symbol">(</span>dbService<span class="tsd-signature-symbol">: </span><a href="db_db_service.DBService.html" class="tsd-signature-type" data-tsd-kind="Class">DBService</a>, resourceService<span class="tsd-signature-symbol">: </span><a href="resource_resource_service.ResourceService.html" class="tsd-signature-type" data-tsd-kind="Class">ResourceService</a>, userService<span class="tsd-signature-symbol">: </span><a href="user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="session_session_service.SessionService.html" class="tsd-signature-type" data-tsd-kind="Class">SessionService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Book<wbr>Service<span class="tsd-signature-symbol">(</span>dbService<span class="tsd-signature-symbol">: </span><a href="db_db_service.DBService.html" class="tsd-signature-type" data-tsd-kind="Class">DBService</a>, resourceService<span class="tsd-signature-symbol">: </span><a href="resource_resource_service.ResourceService.html" class="tsd-signature-type" data-tsd-kind="Class">ResourceService</a>, imageService<span class="tsd-signature-symbol">: </span><a href="image_image_service.ImageService.html" class="tsd-signature-type" data-tsd-kind="Class">ImageService</a>, userService<span class="tsd-signature-symbol">: </span><a href="user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a>, departmentService<span class="tsd-signature-symbol">: </span><a href="department_department_service.DepartmentService.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentService</a>, bookConditionService<span class="tsd-signature-symbol">: </span><a href="book_condition_book_condition_service.BookConditionService.html" class="tsd-signature-type" data-tsd-kind="Class">BookConditionService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="book_book_service.BookService.html" class="tsd-signature-type" data-tsd-kind="Class">BookService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L16">src/services/session/session.service.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L61">src/services/book/book.service.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -139,10 +138,19 @@
 									<h5>resourceService: <a href="resource_resource_service.ResourceService.html" class="tsd-signature-type" data-tsd-kind="Class">ResourceService</a></h5>
 								</li>
 								<li>
+									<h5>imageService: <a href="image_image_service.ImageService.html" class="tsd-signature-type" data-tsd-kind="Class">ImageService</a></h5>
+								</li>
+								<li>
 									<h5>userService: <a href="user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a></h5>
 								</li>
+								<li>
+									<h5>departmentService: <a href="department_department_service.DepartmentService.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentService</a></h5>
+								</li>
+								<li>
+									<h5>bookConditionService: <a href="book_condition_book_condition_service.BookConditionService.html" class="tsd-signature-type" data-tsd-kind="Class">BookConditionService</a></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="session_session_service.SessionService.html" class="tsd-signature-type" data-tsd-kind="Class">SessionService</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="book_book_service.BookService.html" class="tsd-signature-type" data-tsd-kind="Class">BookService</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -152,10 +160,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="tableName" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> table<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">table<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;NB_SESSION&quot;</span><span class="tsd-signature-symbol"> = &#x27;NB_SESSION&#x27;</span></div>
+					<div class="tsd-signature tsd-kind-icon">table<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;NB_BOOK&quot;</span><span class="tsd-signature-symbol"> = &#x27;NB_BOOK&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L14">src/services/session/session.service.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L59">src/services/book/book.service.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,255 +171,243 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="createSession" class="tsd-anchor"></a>
-					<h3>create<wbr>Session</h3>
+					<a name="bookExists" class="tsd-anchor"></a>
+					<h3>book<wbr>Exists</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Session<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/session_session_interface.NBSession.html" class="tsd-signature-type" data-tsd-kind="Interface">NBSession</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">book<wbr>Exists<span class="tsd-signature-symbol">(</span>bookID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L31">src/services/session/session.service.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L367">src/services/book/book.service.ts:367</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Create a user session.</p>
+									<p>Determine whether or not a book exists.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>userID: <span class="tsd-signature-type">string</span></h5>
+									<h5>bookID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the user creating the session.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/session_session_interface.NBSession.html" class="tsd-signature-type" data-tsd-kind="Interface">NBSession</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The new session record.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="deleteOldUserSessions" class="tsd-anchor"></a>
-					<h3>delete<wbr>Old<wbr>User<wbr>Sessions</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Old<wbr>User<wbr>Sessions<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L142">src/services/session/session.service.ts:142</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Delete all old user sessions.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>userID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The user&#39;s ID.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="deleteSession" class="tsd-anchor"></a>
-					<h3>delete<wbr>Session</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Session<span class="tsd-signature-symbol">(</span>sessionID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L124">src/services/session/session.service.ts:124</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Delete a user session.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>sessionID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The session&#39;s ID.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="deleteUserSessions" class="tsd-anchor"></a>
-					<h3>delete<wbr>User<wbr>Sessions</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>User<wbr>Sessions<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L133">src/services/session/session.service.ts:133</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Delete all sessions associated with a user.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>userID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The user&#39;s ID.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getSession" class="tsd-anchor"></a>
-					<h3>get<wbr>Session</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Session<span class="tsd-signature-symbol">(</span>sessionID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/session_session_interface.NBSession.html" class="tsd-signature-type" data-tsd-kind="Interface">NBSession</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L65">src/services/session/session.service.ts:65</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get a user session record.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>sessionID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The session&#39;s ID.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/session_session_interface.NBSession.html" class="tsd-signature-type" data-tsd-kind="Interface">NBSession</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The user session record.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getUserBySessionID" class="tsd-anchor"></a>
-					<h3>get<wbr>User<wbr>BySessionID</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>BySessionID<span class="tsd-signature-symbol">(</span>sessionID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_user_interface.NBUser.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUser</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L84">src/services/session/session.service.ts:84</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the user associated with a session.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>sessionID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The session&#39;s ID.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_user_interface.NBUser.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUser</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The user associated with the session.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getUserSessions" class="tsd-anchor"></a>
-					<h3>get<wbr>User<wbr>Sessions</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>Sessions<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/session_session_interface.NBSession.html" class="tsd-signature-type" data-tsd-kind="Interface">NBSession</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L105">src/services/session/session.service.ts:105</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get all sessions associated with a user.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>userID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The user&#39;s ID.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/session_session_interface.NBSession.html" class="tsd-signature-type" data-tsd-kind="Interface">NBSession</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>All sessions associated with the user.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="sessionExists" class="tsd-anchor"></a>
-					<h3>session<wbr>Exists</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">session<wbr>Exists<span class="tsd-signature-symbol">(</span>sessionID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/session/session.service.ts#L51">src/services/session/session.service.ts:51</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Determine whether or not a session exists.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>sessionID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The session&#39;s ID.</p>
+										<p>The book&#39;s ID.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Whether or not the session exists.</p>
+							<p>Whether or not the book exists.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createBook" class="tsd-anchor"></a>
+					<h3>create<wbr>Book</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Book<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CreateBookOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L82">src/services/book/book.service.ts:82</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new book.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">CreateBookOptions</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The new book options.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new book record.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="deleteBook" class="tsd-anchor"></a>
+					<h3>delete<wbr>Book</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Book<span class="tsd-signature-symbol">(</span>bookID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, sold<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L415">src/services/book/book.service.ts:415</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete a book.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bookID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The book&#39;s ID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sold: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether or not the book was sold.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="editBook" class="tsd-anchor"></a>
+					<h3>edit<wbr>Book</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">edit<wbr>Book<span class="tsd-signature-symbol">(</span>bookID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EditBookOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L224">src/services/book/book.service.ts:224</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Edit an existing book.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bookID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The book&#39;s ID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">EditBookOptions</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The updated book options.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The updated book record.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getBook" class="tsd-anchor"></a>
+					<h3>get<wbr>Book</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Book<span class="tsd-signature-symbol">(</span>bookID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L378">src/services/book/book.service.ts:378</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get a book.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bookID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The book&#39;s ID.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The book record.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getBookUser" class="tsd-anchor"></a>
+					<h3>get<wbr>Book<wbr>User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Book<wbr>User<span class="tsd-signature-symbol">(</span>bookID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_user_interface.NBUser.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUser</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L394">src/services/book/book.service.ts:394</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the user who listed a book.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bookID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The book&#39;s ID.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_user_interface.NBUser.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUser</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The user who listed the book.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="searchBooks" class="tsd-anchor"></a>
+					<h3>search<wbr>Books</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">search<wbr>Books<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SearchBooksOptions</span>, sortID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/72390c2/src/services/book/book.service.ts#L434">src/services/book/book.service.ts:434</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Search for books.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">SearchBooksOptions</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The search options.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sortID: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the search sort option.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_book_interface.NBBook.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBook</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>All books matching the search parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -432,7 +428,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/book_book_interface.html">book/book.interface</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/book_book_service.html">book/book.service</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -474,7 +470,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/session_session_interface.html">session/session.interface</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/session_session_service.html">session/session.service</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -502,37 +498,34 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="session_session_service.SessionService.html" class="tsd-kind-icon">Session<wbr>Service</a>
+						<a href="book_book_service.BookService.html" class="tsd-kind-icon">Book<wbr>Service</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="book_book_service.BookService.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="session_session_service.SessionService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a>
+								<a href="book_book_service.BookService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#createSession" class="tsd-kind-icon">create<wbr>Session</a>
+								<a href="book_book_service.BookService.html#bookExists" class="tsd-kind-icon">book<wbr>Exists</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#deleteOldUserSessions" class="tsd-kind-icon">delete<wbr>Old<wbr>User<wbr>Sessions</a>
+								<a href="book_book_service.BookService.html#createBook" class="tsd-kind-icon">create<wbr>Book</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#deleteSession" class="tsd-kind-icon">delete<wbr>Session</a>
+								<a href="book_book_service.BookService.html#deleteBook" class="tsd-kind-icon">delete<wbr>Book</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#deleteUserSessions" class="tsd-kind-icon">delete<wbr>User<wbr>Sessions</a>
+								<a href="book_book_service.BookService.html#editBook" class="tsd-kind-icon">edit<wbr>Book</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#getSession" class="tsd-kind-icon">get<wbr>Session</a>
+								<a href="book_book_service.BookService.html#getBook" class="tsd-kind-icon">get<wbr>Book</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#getUserBySessionID" class="tsd-kind-icon">get<wbr>User<wbr>BySessionID</a>
+								<a href="book_book_service.BookService.html#getBookUser" class="tsd-kind-icon">get<wbr>Book<wbr>User</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#getUserSessions" class="tsd-kind-icon">get<wbr>User<wbr>Sessions</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="session_session_service.SessionService.html#sessionExists" class="tsd-kind-icon">session<wbr>Exists</a>
+								<a href="book_book_service.BookService.html#searchBooks" class="tsd-kind-icon">search<wbr>Books</a>
 							</li>
 						</ul>
 					</li>
