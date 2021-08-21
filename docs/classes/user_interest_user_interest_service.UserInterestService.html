@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BookConditionService | norsebooks</title>
+	<title>UserInterestService | norsebooks</title>
 	<meta name="description" content="Documentation for norsebooks">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">norsebooks</a>
 				</li>
 				<li>
-					<a href="../modules/book_condition_book_condition_service.html">book-condition/book-condition.service</a>
+					<a href="../modules/user_interest_user_interest_service.html">user-interest/user-interest.service</a>
 				</li>
 				<li>
-					<a href="book_condition_book_condition_service.BookConditionService.html">BookConditionService</a>
+					<a href="user_interest_user_interest_service.UserInterestService.html">UserInterestService</a>
 				</li>
 			</ul>
-			<h1>Class BookConditionService</h1>
+			<h1>Class UserInterestService</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Book condition table service.</p>
+						<p>User interest table service.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BookConditionService</span>
+						<span class="target">UserInterestService</span>
 					</li>
 				</ul>
 			</section>
@@ -90,22 +90,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="book_condition_book_condition_service.BookConditionService.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="user_interest_user_interest_service.UserInterestService.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="book_condition_book_condition_service.BookConditionService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="user_interest_user_interest_service.UserInterestService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_condition_book_condition_service.BookConditionService.html#bookConditionExists" class="tsd-kind-icon">book<wbr>Condition<wbr>Exists</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_condition_book_condition_service.BookConditionService.html#bookConditionExistsByName" class="tsd-kind-icon">book<wbr>Condition<wbr>Exists<wbr>ByName</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_condition_book_condition_service.BookConditionService.html#getBookConditionName" class="tsd-kind-icon">get<wbr>Book<wbr>Condition<wbr>Name</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="book_condition_book_condition_service.BookConditionService.html#getBookConditions" class="tsd-kind-icon">get<wbr>Book<wbr>Conditions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user_interest_user_interest_service.UserInterestService.html#dropInterest" class="tsd-kind-icon">drop<wbr>Interest</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user_interest_user_interest_service.UserInterestService.html#getUserInterests" class="tsd-kind-icon">get<wbr>User<wbr>Interests</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user_interest_user_interest_service.UserInterestService.html#isInterested" class="tsd-kind-icon">is<wbr>Interested</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="user_interest_user_interest_service.UserInterestService.html#noteInterest" class="tsd-kind-icon">note<wbr>Interest</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,13 +117,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Book<wbr>Condition<wbr>Service<span class="tsd-signature-symbol">(</span>dbService<span class="tsd-signature-symbol">: </span><a href="db_db_service.DBService.html" class="tsd-signature-type" data-tsd-kind="Class">DBService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="book_condition_book_condition_service.BookConditionService.html" class="tsd-signature-type" data-tsd-kind="Class">BookConditionService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>User<wbr>Interest<wbr>Service<span class="tsd-signature-symbol">(</span>dbService<span class="tsd-signature-symbol">: </span><a href="db_db_service.DBService.html" class="tsd-signature-type" data-tsd-kind="Class">DBService</a>, userService<span class="tsd-signature-symbol">: </span><a href="user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a>, departmentService<span class="tsd-signature-symbol">: </span><a href="department_department_service.DepartmentService.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="user_interest_user_interest_service.UserInterestService.html" class="tsd-signature-type" data-tsd-kind="Class">UserInterestService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/book-condition/book-condition.service.ts#L13">src/services/book-condition/book-condition.service.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/user-interest/user-interest.service.ts#L15">src/services/user-interest/user-interest.service.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -131,8 +131,14 @@
 								<li>
 									<h5>dbService: <a href="db_db_service.DBService.html" class="tsd-signature-type" data-tsd-kind="Class">DBService</a></h5>
 								</li>
+								<li>
+									<h5>userService: <a href="user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a></h5>
+								</li>
+								<li>
+									<h5>departmentService: <a href="department_department_service.DepartmentService.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentService</a></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="book_condition_book_condition_service.BookConditionService.html" class="tsd-signature-type" data-tsd-kind="Class">BookConditionService</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="user_interest_user_interest_service.UserInterestService.html" class="tsd-signature-type" data-tsd-kind="Class">UserInterestService</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -142,10 +148,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="tableName" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> table<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">table<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;NB_BOOK_CONDITION&quot;</span><span class="tsd-signature-symbol"> = &#x27;NB_BOOK_CONDITION&#x27;</span></div>
+					<div class="tsd-signature tsd-kind-icon">table<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;NB_USER_INTEREST&quot;</span><span class="tsd-signature-symbol"> = &#x27;NB_USER_INTEREST&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/book-condition/book-condition.service.ts#L11">src/services/book-condition/book-condition.service.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/user-interest/user-interest.service.ts#L13">src/services/user-interest/user-interest.service.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -153,125 +159,147 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="bookConditionExists" class="tsd-anchor"></a>
-					<h3>book<wbr>Condition<wbr>Exists</h3>
+					<a name="dropInterest" class="tsd-anchor"></a>
+					<h3>drop<wbr>Interest</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">book<wbr>Condition<wbr>Exists<span class="tsd-signature-symbol">(</span>conditionID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">drop<wbr>Interest<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, departmentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/book-condition/book-condition.service.ts#L24">src/services/book-condition/book-condition.service.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/user-interest/user-interest.service.ts#L95">src/services/user-interest/user-interest.service.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Determine whether or not a book condition exists.</p>
+									<p>Delete a user&#39;s interest in a department.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>params</dt>
-									<dd><p>Whether or not the book condition exists.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>conditionID: <span class="tsd-signature-type">number</span></h5>
+									<h5>userID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The book condition&#39;s ID.</p>
+										<p>The user&#39;s ID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>departmentID: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The department&#39;s ID.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getUserInterests" class="tsd-anchor"></a>
+					<h3>get<wbr>User<wbr>Interests</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>Interests<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_interest_user_interest_interface.NBUserInterest.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUserInterest</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/user-interest/user-interest.service.ts#L81">src/services/user-interest/user-interest.service.ts:81</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get all of a user&#39;s departmental interests.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>userID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The user&#39;s ID.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_interest_user_interest_interface.NBUserInterest.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUserInterest</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>All of the user&#39;s departmental interests.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isInterested" class="tsd-anchor"></a>
+					<h3>is<wbr>Interested</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Interested<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, departmentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/user-interest/user-interest.service.ts#L64">src/services/user-interest/user-interest.service.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine whether or not a user is interested in a department.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>userID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The user&#39;s ID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>departmentID: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The department&#39;s ID.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Whether or not the user is interested in the department.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="bookConditionExistsByName" class="tsd-anchor"></a>
-					<h3>book<wbr>Condition<wbr>Exists<wbr>ByName</h3>
+					<a name="noteInterest" class="tsd-anchor"></a>
+					<h3>note<wbr>Interest</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">book<wbr>Condition<wbr>Exists<wbr>ByName<span class="tsd-signature-symbol">(</span>conditionName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">note<wbr>Interest<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, departmentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_interest_user_interest_interface.NBUserInterest.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUserInterest</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/book-condition/book-condition.service.ts#L38">src/services/book-condition/book-condition.service.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/user-interest/user-interest.service.ts#L31">src/services/user-interest/user-interest.service.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Determine whether or not a book condition exists.</p>
+									<p>Note a user&#39;s interest in a department.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>conditionName: <span class="tsd-signature-type">string</span></h5>
+									<h5>userID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Thhe book condition&#39;s name.</p>
+										<p>The user&#39;s ID.</p>
 									</div>
 								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Whether or not the book condition exists.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getBookConditionName" class="tsd-anchor"></a>
-					<h3>get<wbr>Book<wbr>Condition<wbr>Name</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Book<wbr>Condition<wbr>Name<span class="tsd-signature-symbol">(</span>conditionID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/book-condition/book-condition.service.ts#L54">src/services/book-condition/book-condition.service.ts:54</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the name of a book condition.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
 								<li>
-									<h5>conditionID: <span class="tsd-signature-type">number</span></h5>
+									<h5>departmentID: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The book condition&#39;s ID.</p>
+										<p>The department&#39;s ID.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The name of the book condition.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getBookConditions" class="tsd-anchor"></a>
-					<h3>get<wbr>Book<wbr>Conditions</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Book<wbr>Conditions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_condition_book_condition_interface.NBBookCondition.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBookCondition</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/0c60ed2/src/services/book-condition/book-condition.service.ts#L72">src/services/book-condition/book-condition.service.ts:72</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get all book conditions.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/book_condition_book_condition_interface.NBBookCondition.html" class="tsd-signature-type" data-tsd-kind="Interface">NBBookCondition</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>All book conditions.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user_interest_user_interest_interface.NBUserInterest.html" class="tsd-signature-type" data-tsd-kind="Interface">NBUserInterest</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new user interest record.</p>
 						</li>
 					</ul>
 				</section>
@@ -286,7 +314,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/book_condition_book_condition_interface.html">book-<wbr>condition/book-<wbr>condition.interface</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/book_condition_book_condition_service.html">book-<wbr>condition/book-<wbr>condition.service</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -340,7 +368,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/user_interest_user_interest_interface.html">user-<wbr>interest/user-<wbr>interest.interface</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/user_interest_user_interest_service.html">user-<wbr>interest/user-<wbr>interest.service</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -362,25 +390,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="book_condition_book_condition_service.BookConditionService.html" class="tsd-kind-icon">Book<wbr>Condition<wbr>Service</a>
+						<a href="user_interest_user_interest_service.UserInterestService.html" class="tsd-kind-icon">User<wbr>Interest<wbr>Service</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="book_condition_book_condition_service.BookConditionService.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="user_interest_user_interest_service.UserInterestService.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="book_condition_book_condition_service.BookConditionService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a>
+								<a href="user_interest_user_interest_service.UserInterestService.html#tableName" class="tsd-kind-icon">table<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="book_condition_book_condition_service.BookConditionService.html#bookConditionExists" class="tsd-kind-icon">book<wbr>Condition<wbr>Exists</a>
+								<a href="user_interest_user_interest_service.UserInterestService.html#dropInterest" class="tsd-kind-icon">drop<wbr>Interest</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="book_condition_book_condition_service.BookConditionService.html#bookConditionExistsByName" class="tsd-kind-icon">book<wbr>Condition<wbr>Exists<wbr>ByName</a>
+								<a href="user_interest_user_interest_service.UserInterestService.html#getUserInterests" class="tsd-kind-icon">get<wbr>User<wbr>Interests</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="book_condition_book_condition_service.BookConditionService.html#getBookConditionName" class="tsd-kind-icon">get<wbr>Book<wbr>Condition<wbr>Name</a>
+								<a href="user_interest_user_interest_service.UserInterestService.html#isInterested" class="tsd-kind-icon">is<wbr>Interested</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="book_condition_book_condition_service.BookConditionService.html#getBookConditions" class="tsd-kind-icon">get<wbr>Book<wbr>Conditions</a>
+								<a href="user_interest_user_interest_service.UserInterestService.html#noteInterest" class="tsd-kind-icon">note<wbr>Interest</a>
 							</li>
 						</ul>
 					</li>
