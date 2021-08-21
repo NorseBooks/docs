@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for resource/resource.service.ts</title>
+    <title>Code coverage report for search-sort/search-sort.service.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">resource</a> resource.service.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">search-sort</a> search-sort.service.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,14 +32,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -117,10 +117,10 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,40 +155,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">392x</span>
-<span class="cline-any cline-yes">392x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { DBService } from '../db/db.service';
-import { NBResource } from './resource.interface';
+import { NBSearchSort } from './search-sort.interface';
+import { ServiceException } from '../service.exception';
 &nbsp;
 /**
- * Resource table service.
+ * Search sort table service.
  */
 @Injectable()
-export class ResourceService {
-  private readonly tableName = 'NB_RESOURCE';
+export class SearchSortService {
+  private readonly tableName = 'NB_SEARCH_SORT';
 &nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
@@ -196,48 +195,46 @@ export class ResourceService {
   ) {}
 &nbsp;
   /**
-   * Determine whether or not an app resource exists.
+   * Determine whether or not a search sort option exists.
    *
-   * @param name The name of the resource.
-   * @returns Whether or not the resource exists.
+   * @param sortID The sort option ID.
+   * @returns Whether or not the search sort option exists.
    */
-  public async resourceExists(name: string): Promise&lt;boolean&gt; {
-    const resource = await this.dbService.getByFields&lt;NBResource&gt;(
+  public async sortOptionExists(sortID: number): Promise&lt;boolean&gt; {
+    const sortOption = await this.dbService.getByID&lt;NBSearchSort&gt;(
       this.tableName,
-      { name },
+      sortID,
     );
-    return !!resource;
+    return !!sortOption;
   }
 &nbsp;
   /**
-   * Get an app resource.
+   * Get a search sort option.
    *
-   * @param name The name of the resource.
-   * @returns The value of the requested resource, or undefined if it does not exist.
+   * @param sortID The sort option ID.
+   * @returns The search sort option.
    */
-  public async getResource(name: string): Promise&lt;string | undefined&gt; {
-    const resource = await this.dbService.getByFields&lt;NBResource&gt;(
+  public async getSortOption(sortID: number): Promise&lt;NBSearchSort&gt; {
+    const sortOption = await this.dbService.getByID&lt;NBSearchSort&gt;(
       this.tableName,
-      { name },
+      sortID,
     );
-    return resource?.value;
+&nbsp;
+    if (sortOption) {
+      return sortOption;
+    } else {
+      throw new ServiceException('Search sort option does not exist');
+    }
   }
 &nbsp;
   /**
-   * Get all app resources.
-   *
-   * @returns All resources.
+   * Get all search sort options.
    */
-  public async getResources(): Promise&lt;{ [name: string]: string }&gt; {
-    const resources = await this.dbService.list&lt;NBResource&gt;(this.tableName, {
-      fieldName: 'name',
+  public async getSortOptions(): Promise&lt;NBSearchSort[]&gt; {
+    return this.dbService.list&lt;NBSearchSort&gt;(this.tableName, {
+      fieldName: 'id',
       sortOrder: 'ASC',
     });
-&nbsp;
-    return resources.reduce((acc, current) =&gt; {
-      acc[current.name] = current.value;
-      return acc;
-    }, {});
   }
 }
 &nbsp;</pre></td></tr></table></pre>
