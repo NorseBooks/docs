@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.29% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>87/102</span>
+                <span class='fraction'>84/98</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85% </span>
+                <span class="strong">85.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>85/100</span>
+                <span class='fraction'>82/96</span>
             </div>
         
             
@@ -450,7 +450,19 @@
 <a name='L391'></a><a href='#L391'>391</a>
 <a name='L392'></a><a href='#L392'>392</a>
 <a name='L393'></a><a href='#L393'>393</a>
-<a name='L394'></a><a href='#L394'>394</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L394'></a><a href='#L394'>394</a>
+<a name='L395'></a><a href='#L395'>395</a>
+<a name='L396'></a><a href='#L396'>396</a>
+<a name='L397'></a><a href='#L397'>397</a>
+<a name='L398'></a><a href='#L398'>398</a>
+<a name='L399'></a><a href='#L399'>399</a>
+<a name='L400'></a><a href='#L400'>400</a>
+<a name='L401'></a><a href='#L401'>401</a>
+<a name='L402'></a><a href='#L402'>402</a>
+<a name='L403'></a><a href='#L403'>403</a>
+<a name='L404'></a><a href='#L404'>404</a>
+<a name='L405'></a><a href='#L405'>405</a>
+<a name='L406'></a><a href='#L406'>406</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -495,10 +507,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -622,9 +643,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -807,7 +833,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -824,7 +849,6 @@
 <span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -887,11 +911,20 @@ export class UserService {
     email: string,
     password: string,
   ): Promise&lt;NBUser&gt; {
-    const resources = await this.resourceService.getResources();
-    const userEmailMinLength = parseInt(resources.USER_EMAIL_MIN_LENGTH);
-    const userEmailMaxLength = parseInt(resources.USER_EMAIL_MAX_LENGTH);
-    const userPasswordMinLength = parseInt(resources.USER_PASSWORD_MIN_LENGTH);
-    const userPasswordMaxLength = parseInt(resources.USER_PASSWORD_MAX_LENGTH);
+    const userEmailMinLength = await this.resourceService.getResource&lt;number&gt;(
+      'USER_EMAIL_MIN_LENGTH',
+    );
+    const userEmailMaxLength = await this.resourceService.getResource&lt;number&gt;(
+      'USER_EMAIL_MAX_LENGTH',
+    );
+    const userPasswordMinLength =
+      await this.resourceService.getResource&lt;number&gt;(
+        'USER_PASSWORD_MIN_LENGTH',
+      );
+    const userPasswordMaxLength =
+      await this.resourceService.getResource&lt;number&gt;(
+        'USER_PASSWORD_MAX_LENGTH',
+      );
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (
       email.length &gt;= userEmailMinLength &amp;&amp;
@@ -1015,9 +1048,14 @@ export class UserService {
     userID: string,
     newPassword: string,
   ): Promise&lt;NBUser&gt; {
-    const resources = await this.resourceService.getResources();
-    const userPasswordMinLength = parseInt(resources.USER_PASSWORD_MIN_LENGTH);
-    const userPasswordMaxLength = parseInt(resources.USER_PASSWORD_MAX_LENGTH);
+    const userPasswordMinLength =
+      await this.resourceService.getResource&lt;number&gt;(
+        'USER_PASSWORD_MIN_LENGTH',
+      );
+    const userPasswordMaxLength =
+      await this.resourceService.getResource&lt;number&gt;(
+        'USER_PASSWORD_MAX_LENGTH',
+      );
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (
       newPassword.length &gt;= userPasswordMinLength &amp;&amp;
@@ -1197,10 +1235,9 @@ export class UserService {
    * Prune all old unverified accounts.
    */
   public <span class="fstat-no" title="function not covered" >async </span>pruneUnverifiedUsers(): Promise&lt;void&gt; {
-    const unverifiedUserAgeResource = <span class="cstat-no" title="statement not covered" >await this.resourceService.getResource(</span>
+    const unverifiedUserAge = <span class="cstat-no" title="statement not covered" >await this.resourceService.getResource&lt;number&gt;(</span>
       'UNVERIFIED_USER_AGE',
     );
-    const unverifiedUserAge = <span class="cstat-no" title="statement not covered" >parseInt(unverifiedUserAgeResource);</span>
 &nbsp;
     const sql = <span class="cstat-no" title="statement not covered" >`DELETE FROM "${this.tableName}" WHERE "verified" = FALSE AND EXTRACT(EPOCH FROM NOW() - "joinTime") &gt;= ${unverifiedUserAge};`;</span>
 <span class="cstat-no" title="statement not covered" >    await this.dbService.execute(sql);</span>
@@ -1214,10 +1251,9 @@ export class UserService {
    * @returns The hashed password.
    */
   private async hashPassword(password: string): Promise&lt;string&gt; {
-    const saltRoundsResource = await this.resourceService.getResource(
+    const saltRounds = await this.resourceService.getResource&lt;number&gt;(
       'SALT_ROUNDS',
     );
-    const saltRounds = parseInt(saltRoundsResource);
 &nbsp;
     return bcrypt.hash(password, saltRounds);
   }
@@ -1243,7 +1279,7 @@ export class UserService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Aug 23 2021 22:46:07 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 21:14:06 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
