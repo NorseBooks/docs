@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">61.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>36/60</span>
+                <span class='fraction'>39/63</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.62% </span>
+                <span class="strong">60.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/58</span>
+                <span class='fraction'>37/61</span>
             </div>
         
             
@@ -289,7 +289,13 @@
 <a name='L230'></a><a href='#L230'>230</a>
 <a name='L231'></a><a href='#L231'>231</a>
 <a name='L232'></a><a href='#L232'>232</a>
-<a name='L233'></a><a href='#L233'>233</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -299,10 +305,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -322,6 +331,7 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
@@ -381,6 +391,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -515,6 +526,7 @@
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
@@ -529,12 +541,15 @@ import { ServiceException } from '../service.exception';
 import * as jimp from 'jimp';
 &nbsp;
 /**
+ * Image table name.
+ */
+export const imageTableName = 'NB_IMAGE';
+&nbsp;
+/**
  * Image table service.
  */
 @Injectable()
 export class ImageService {
-  private readonly tableName = 'NB_IMAGE';
-&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -551,12 +566,13 @@ export class ImageService {
   public async createImage(data: string): Promise&lt;NBImage&gt; {
     const imageData = await this.shrinkImageBase64(data);
 &nbsp;
-    const maxImageSize = await this.resourceService.getResource&lt;number&gt;(
+    const maxImageSizeResource = await this.resourceService.getResource(
       'MAX_IMAGE_SIZE',
     );
+    const maxImageSize = parseInt(maxImageSizeResource);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (imageData.length &lt; maxImageSize) {
-      return this.dbService.create&lt;NBImage&gt;(this.tableName, {
+      return this.dbService.create&lt;NBImage&gt;(imageTableName, {
         data: imageData,
       });
     } else {
@@ -572,7 +588,7 @@ export class ImageService {
    */
   public async imageExists(imageID: string): Promise&lt;boolean&gt; {
     const image = await this.dbService.getByID&lt;NBImage&gt;(
-      this.tableName,
+      imageTableName,
       imageID,
     );
     return !!image;
@@ -586,7 +602,7 @@ export class ImageService {
    */
   public async getImage(imageID: string): Promise&lt;NBImage&gt; {
     const image = await this.dbService.getByID&lt;NBImage&gt;(
-      this.tableName,
+      imageTableName,
       imageID,
     );
 &nbsp;
@@ -610,15 +626,16 @@ export class ImageService {
   ): Promise&lt;NBImage&gt; {
     const imageData = await this.shrinkImageBase64(newData);
 &nbsp;
-    const maxImageSize = await this.resourceService.getResource&lt;number&gt;(
+    const maxImageSizeResource = await this.resourceService.getResource(
       'MAX_IMAGE_SIZE',
     );
+    const maxImageSize = parseInt(maxImageSizeResource);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (imageData.length &lt; maxImageSize) {
       const imageExists = await this.imageExists(imageID);
 &nbsp;
       <span class="missing-if-branch" title="else path not taken" >E</span>if (imageExists) {
-        return this.dbService.updateByID&lt;NBImage&gt;(this.tableName, imageID, {
+        return this.dbService.updateByID&lt;NBImage&gt;(imageTableName, imageID, {
           data: imageData,
         });
       } else {
@@ -635,7 +652,7 @@ export class ImageService {
    * @param imageID The ID of the image.
    */
   public async deleteImage(imageID: string): Promise&lt;void&gt; {
-    await this.dbService.deleteByID(this.tableName, imageID);
+    await this.dbService.deleteByID(imageTableName, imageID);
   }
 &nbsp;
   /**
@@ -744,9 +761,10 @@ export class ImageService {
    * @returns The shrunk base64 image.
    */
   private async shrinkImageBase64(imageB64: string): Promise&lt;string&gt; {
-    const maxImageSize = await this.resourceService.getResource&lt;number&gt;(
+    const maxImageSizeResource = await this.resourceService.getResource(
       'MAX_IMAGE_SIZE',
     );
+    const maxImageSize = parseInt(maxImageSizeResource);
 &nbsp;
     const image = Buffer.from(imageB64, 'base64');
     const shrunk = await this.shrinkImageAuto(image, maxImageSize);
@@ -760,7 +778,7 @@ export class ImageService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 21:14:06 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 21:48:40 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
