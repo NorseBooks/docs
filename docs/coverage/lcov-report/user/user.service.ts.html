@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">85.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>84/98</span>
+                <span class='fraction'>85/99</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.42% </span>
+                <span class="strong">85.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>82/96</span>
+                <span class='fraction'>83/97</span>
             </div>
         
             
@@ -462,11 +462,16 @@
 <a name='L403'></a><a href='#L403'>403</a>
 <a name='L404'></a><a href='#L404'>404</a>
 <a name='L405'></a><a href='#L405'>405</a>
-<a name='L406'></a><a href='#L406'>406</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L406'></a><a href='#L406'>406</a>
+<a name='L407'></a><a href='#L407'>407</a>
+<a name='L408'></a><a href='#L408'>408</a>
+<a name='L409'></a><a href='#L409'>409</a>
+<a name='L410'></a><a href='#L410'>410</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -476,10 +481,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -872,6 +880,7 @@ import { DBService } from '../db/db.service';
 import { ResourceService } from '../resource/resource.service';
 import { ImageService } from '../image/image.service';
 import { SessionService } from '../session/session.service';
+import { bookTableName } from '../book/book.service';
 import { NBUser } from './user.interface';
 import { NBSession } from '../session/session.interface';
 import { NBBook } from '../book/book.interface';
@@ -879,12 +888,15 @@ import { ServiceException } from '../service.exception';
 import * as bcrypt from 'bcrypt';
 &nbsp;
 /**
+ * User table name.
+ */
+export const userTableName = 'NB_USER';
+&nbsp;
+/**
  * User table service.
  */
 @Injectable()
 export class UserService {
-  private readonly tableName = 'NB_USER';
-&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -939,7 +951,7 @@ export class UserService {
         <span class="missing-if-branch" title="else path not taken" >E</span>if (!emailExists) {
           const passwordHash = await this.hashPassword(password);
 &nbsp;
-          return this.dbService.create&lt;NBUser&gt;(this.tableName, {
+          return this.dbService.create&lt;NBUser&gt;(userTableName, {
             firstname,
             lastname,
             email,
@@ -967,7 +979,7 @@ export class UserService {
    * @returns Whether or not the user exists.
    */
   public async userExists(userID: string): Promise&lt;boolean&gt; {
-    const user = await this.dbService.getByID&lt;NBUser&gt;(this.tableName, userID);
+    const user = await this.dbService.getByID&lt;NBUser&gt;(userTableName, userID);
     return !!user;
   }
 &nbsp;
@@ -977,7 +989,7 @@ export class UserService {
    * @returns Whether or not a user with the given email address exists.
    */
   public async userExistsByEmail(email: string): Promise&lt;boolean&gt; {
-    const user = await this.dbService.getByFields&lt;NBUser&gt;(this.tableName, {
+    const user = await this.dbService.getByFields&lt;NBUser&gt;(userTableName, {
       email,
     });
     return !!user;
@@ -990,7 +1002,7 @@ export class UserService {
    * @returns The user record.
    */
   public async getUser(userID: string): Promise&lt;NBUser&gt; {
-    const user = await this.dbService.getByID&lt;NBUser&gt;(this.tableName, userID);
+    const user = await this.dbService.getByID&lt;NBUser&gt;(userTableName, userID);
 &nbsp;
     if (user) {
       return user;
@@ -1006,7 +1018,7 @@ export class UserService {
    * @returns The user record.
    */
   public async getUserByEmail(email: string): Promise&lt;NBUser&gt; {
-    const user = await this.dbService.getByFields&lt;NBUser&gt;(this.tableName, {
+    const user = await this.dbService.getByFields&lt;NBUser&gt;(userTableName, {
       email,
     });
 &nbsp;
@@ -1028,7 +1040,7 @@ export class UserService {
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
       return this.dbService.listByFields&lt;NBBook&gt;(
-        'NB_BOOK',
+        bookTableName,
         { userID },
         { fieldName: 'listTime', sortOrder: 'ASC' },
       );
@@ -1066,7 +1078,7 @@ export class UserService {
       <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
         const passwordHash = await this.hashPassword(newPassword);
 &nbsp;
-        return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+        return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
           passwordHash,
         });
       } else {
@@ -1090,7 +1102,7 @@ export class UserService {
     const userExists = await this.userExists(userID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
-      return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+      return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
         verified,
       });
     } else {
@@ -1118,7 +1130,7 @@ export class UserService {
     } else {
       const image = await this.imageService.createImage(imageData);
 &nbsp;
-      return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+      return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
         imageID: image.id,
       });
     }
@@ -1136,7 +1148,7 @@ export class UserService {
     if (user.imageID) {
       await this.imageService.deleteImage(user.imageID);
 &nbsp;
-      return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+      return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
         imageID: null,
       });
     } else {
@@ -1154,7 +1166,7 @@ export class UserService {
   public async incrementBooksListed(userID: string, num = 1): Promise&lt;NBUser&gt; {
     const user = await this.getUser(userID);
 &nbsp;
-    return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+    return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
       numBooksListed: user.numBooksListed + num,
     });
   }
@@ -1169,7 +1181,7 @@ export class UserService {
   public async incrementBooksSold(userID: string, num = 1): Promise&lt;NBUser&gt; {
     const user = await this.getUser(userID);
 &nbsp;
-    return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+    return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
       numBooksSold: user.numBooksSold + num,
     });
   }
@@ -1184,7 +1196,7 @@ export class UserService {
   public async addMoneyMade(userID: string, amount: number): Promise&lt;NBUser&gt; {
     const user = await this.getUser(userID);
 &nbsp;
-    return this.dbService.updateByID&lt;NBUser&gt;(this.tableName, userID, {
+    return this.dbService.updateByID&lt;NBUser&gt;(userTableName, userID, {
       moneyMade: user.moneyMade + amount,
     });
   }
@@ -1207,7 +1219,7 @@ export class UserService {
       );
 &nbsp;
       if (passwordMatch) {
-        const sql = `UPDATE "${this.tableName}" SET "lastLoginTime" = NOW() WHERE id = ?;`;
+        const sql = `UPDATE "${userTableName}" SET "lastLoginTime" = NOW() WHERE id = ?;`;
         const params = [user.id];
         await this.dbService.execute(sql, params);
 &nbsp;
@@ -1228,7 +1240,7 @@ export class UserService {
    */
   public async deleteUser(userID: string): Promise&lt;void&gt; {
     await this.deleteUserImage(userID);
-    await this.dbService.deleteByID(this.tableName, userID);
+    await this.dbService.deleteByID(userTableName, userID);
   }
 &nbsp;
   /**
@@ -1239,7 +1251,7 @@ export class UserService {
       'UNVERIFIED_USER_AGE',
     );
 &nbsp;
-    const sql = <span class="cstat-no" title="statement not covered" >`DELETE FROM "${this.tableName}" WHERE "verified" = FALSE AND EXTRACT(EPOCH FROM NOW() - "joinTime") &gt;= ${unverifiedUserAge};`;</span>
+    const sql = <span class="cstat-no" title="statement not covered" >`DELETE FROM "${userTableName}" WHERE "verified" = FALSE AND EXTRACT(EPOCH FROM NOW() - "joinTime") &gt;= ${unverifiedUserAge};`;</span>
 <span class="cstat-no" title="statement not covered" >    await this.dbService.execute(sql);</span>
   }
 &nbsp;
@@ -1279,7 +1291,7 @@ export class UserService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 22:38:29 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:45:40 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

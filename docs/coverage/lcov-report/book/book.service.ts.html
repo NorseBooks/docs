@@ -567,7 +567,10 @@
 <a name='L508'></a><a href='#L508'>508</a>
 <a name='L509'></a><a href='#L509'>509</a>
 <a name='L510'></a><a href='#L510'>510</a>
-<a name='L511'></a><a href='#L511'>511</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L511'></a><a href='#L511'>511</a>
+<a name='L512'></a><a href='#L512'>512</a>
+<a name='L513'></a><a href='#L513'>513</a>
+<a name='L514'></a><a href='#L514'>514</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -624,10 +627,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -1081,7 +1087,7 @@
 import { DBService } from '../db/db.service';
 import { ResourceService } from '../resource/resource.service';
 import { ImageService } from '../image/image.service';
-import { UserService } from '../user/user.service';
+import { UserService, userTableName } from '../user/user.service';
 import { DepartmentService } from '../department/department.service';
 import { BookConditionService } from '../book-condition/book-condition.service';
 import { SearchSortService } from '../search-sort/search-sort.service';
@@ -1132,12 +1138,15 @@ interface SearchBooksOptions {
 }
 &nbsp;
 /**
+ * Book table name.
+ */
+export const bookTableName = 'NB_BOOK';
+&nbsp;
+/**
  * Book table service.
  */
 @Injectable()
 export class BookService {
-  private readonly tableName = 'NB_BOOK';
-&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -1230,7 +1239,7 @@ export class BookService {
                           );
 &nbsp;
                           const book = await this.dbService.create&lt;NBBook&gt;(
-                            this.tableName,
+                            bookTableName,
                             {
                               userID: options.userID,
                               title: options.title,
@@ -1372,7 +1381,7 @@ export class BookService {
                           );
 &nbsp;
                     <span class="missing-if-branch" title="else path not taken" >E</span>if (bookConditionExists) {
-                      const sql = `UPDATE "${this.tableName}" SET "editTime" = NOW() WHERE id = ?;`;
+                      const sql = `UPDATE "${bookTableName}" SET "editTime" = NOW() WHERE id = ?;`;
                       const params = [book.id];
                       await this.dbService.execute(sql, params);
 &nbsp;
@@ -1403,7 +1412,7 @@ export class BookService {
                         }, {});
 &nbsp;
                       return this.dbService.updateByID&lt;NBBook&gt;(
-                        this.tableName,
+                        bookTableName,
                         bookID,
                         updateFields,
                       );
@@ -1457,7 +1466,7 @@ export class BookService {
    * @returns Whether or not the book exists.
    */
   public async bookExists(bookID: string): Promise&lt;boolean&gt; {
-    const book = await this.dbService.getByID&lt;NBBook&gt;(this.tableName, bookID);
+    const book = await this.dbService.getByID&lt;NBBook&gt;(bookTableName, bookID);
     return !!book;
   }
 &nbsp;
@@ -1468,7 +1477,7 @@ export class BookService {
    * @returns The book record.
    */
   public async getBook(bookID: string): Promise&lt;NBBook&gt; {
-    const book = await this.dbService.getByID&lt;NBBook&gt;(this.tableName, bookID);
+    const book = await this.dbService.getByID&lt;NBBook&gt;(bookTableName, bookID);
 &nbsp;
     if (book) {
       return book;
@@ -1485,8 +1494,8 @@ export class BookService {
    */
   public async getBookUser(bookID: string): Promise&lt;NBUser&gt; {
     const sql = `
-      SELECT * FROM "NB_USER" WHERE id = (
-        SELECT "userID" FROM "${this.tableName}" WHERE id = ?
+      SELECT * FROM "${userTableName}" WHERE id = (
+        SELECT "userID" FROM "${bookTableName}" WHERE id = ?
       );`;
     const params = [bookID];
     const res = await this.dbService.execute&lt;NBUser&gt;(sql, params);
@@ -1513,7 +1522,7 @@ export class BookService {
     }
 &nbsp;
     await this.imageService.deleteImage(book.imageID);
-    await this.dbService.deleteByID(this.tableName, book.id);
+    await this.dbService.deleteByID(bookTableName, book.id);
   }
 &nbsp;
   /**
@@ -1558,7 +1567,7 @@ export class BookService {
 &nbsp;
           const sql = `
             SELECT *
-            FROM "${this.tableName}"
+            FROM "${bookTableName}"
             WHERE
               ${departmentQuery} ${courseNumberQuery} (
                    LOWER("title")       LIKE LOWER(?)
@@ -1594,7 +1603,7 @@ export class BookService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 22:38:29 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:45:40 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
