@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.52% </span>
+                <span class="strong">88.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>54/61</span>
+                <span class='fraction'>52/59</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.14% </span>
+                <span class="strong">87.72% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>52/59</span>
+                <span class='fraction'>50/57</span>
             </div>
         
             
@@ -291,13 +291,7 @@
 <a name='L232'></a><a href='#L232'>232</a>
 <a name='L233'></a><a href='#L233'>233</a>
 <a name='L234'></a><a href='#L234'>234</a>
-<a name='L235'></a><a href='#L235'>235</a>
-<a name='L236'></a><a href='#L236'>236</a>
-<a name='L237'></a><a href='#L237'>237</a>
-<a name='L238'></a><a href='#L238'>238</a>
-<a name='L239'></a><a href='#L239'>239</a>
-<a name='L240'></a><a href='#L240'>240</a>
-<a name='L241'></a><a href='#L241'>241</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L235'></a><a href='#L235'>235</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -307,13 +301,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -338,17 +329,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -514,7 +503,6 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -545,15 +533,12 @@ import { NBMessage } from './message.interface';
 import { ServiceException } from '../service.exception';
 &nbsp;
 /**
- * Message table name.
- */
-export const messageTableName = 'NB_MESSAGE';
-&nbsp;
-/**
  * Message table service.
  */
 @Injectable()
 export class MessageService {
+  private readonly tableName = 'NB_MESSAGE';
+&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -576,23 +561,21 @@ export class MessageService {
     toUserID: string,
     content: string,
   ): Promise&lt;NBMessage&gt; {
-    const messageContentMaxLengthResource =
-      await this.resourceService.getResource('MESSAGE_CONTENT_MAX_LENGTH');
-    const messageContentMaxLength = parseInt(messageContentMaxLengthResource);
+    const messageContentMaxLength =
+      await this.resourceService.getResource&lt;number&gt;(
+        'MESSAGE_CONTENT_MAX_LENGTH',
+      );
 &nbsp;
     const fromUserExists = await this.userService.userExists(fromUserID);
     const toUserExists = await this.userService.userExists(toUserID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (fromUserExists &amp;&amp; toUserExists) {
       <span class="missing-if-branch" title="else path not taken" >E</span>if (content.length &gt;= 1 &amp;&amp; content.length &lt;= messageContentMaxLength) {
-        const message = await this.dbService.create&lt;NBMessage&gt;(
-          messageTableName,
-          {
-            fromUserID,
-            toUserID,
-            content,
-          },
-        );
+        const message = await this.dbService.create&lt;NBMessage&gt;(this.tableName, {
+          fromUserID,
+          toUserID,
+          content,
+        });
         await this.deleteOldMessages(fromUserID, toUserID);
         return message;
       } else {
@@ -613,7 +596,7 @@ export class MessageService {
    */
   public async messageExists(messageID: string): Promise&lt;boolean&gt; {
     const message = await this.dbService.getByID&lt;NBMessage&gt;(
-      messageTableName,
+      this.tableName,
       messageID,
     );
     return !!message;
@@ -627,7 +610,7 @@ export class MessageService {
    */
   public async getMessage(messageID: string): Promise&lt;NBMessage&gt; {
     const message = await this.dbService.getByID&lt;NBMessage&gt;(
-      messageTableName,
+      this.tableName,
       messageID,
     );
 &nbsp;
@@ -654,15 +637,15 @@ export class MessageService {
               MAX("sendTime") "sendTime",
               least("fromUserID", "toUserID") "userID1",
               greatest("fromUserID", "toUserID") "userID2"
-            FROM "${messageTableName}"
+            FROM "NB_MESSAGE"
             GROUP BY
               least("fromUserID", "toUserID"),
               greatest("fromUserID", "toUserID")
         )
-        SELECT "${messageTableName}".*
-          FROM "${messageTableName}"
+        SELECT "NB_MESSAGE".*
+          FROM "NB_MESSAGE"
           JOIN x
-            ON "${messageTableName}"."sendTime" = x."sendTime"
+            ON "NB_MESSAGE"."sendTime" = x."sendTime"
           WHERE "fromUserID" = ? OR "toUserID" = ?
           ORDER BY "sendTime" DESC;
       `;
@@ -689,7 +672,7 @@ export class MessageService {
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (user1Exists &amp;&amp; user2Exists) {
       return this.dbService.listCustom&lt;NBMessage&gt;(
-        messageTableName,
+        this.tableName,
         '("fromUserID" = ? AND "toUserID" = ?) OR ("fromUserID" = ? AND "toUserID" = ?)',
         { fieldName: 'sendTime', sortOrder: 'ASC' },
         [userID1, userID2, userID2, userID1],
@@ -709,7 +692,7 @@ export class MessageService {
     const messageExists = await this.messageExists(messageID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (messageExists) {
-      return this.dbService.updateByID&lt;NBMessage&gt;(messageTableName, messageID, {
+      return this.dbService.updateByID&lt;NBMessage&gt;(this.tableName, messageID, {
         read: true,
       });
     } else {
@@ -727,7 +710,7 @@ export class MessageService {
     const messageExists = await this.messageExists(messageID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (messageExists) {
-      return this.dbService.updateByID&lt;NBMessage&gt;(messageTableName, messageID, {
+      return this.dbService.updateByID&lt;NBMessage&gt;(this.tableName, messageID, {
         read: false,
       });
     } else {
@@ -741,7 +724,7 @@ export class MessageService {
    * @param messageID The message's ID.
    */
   public async deleteMessage(messageID: string): Promise&lt;void&gt; {
-    await this.dbService.deleteByID(messageTableName, messageID);
+    await this.dbService.deleteByID(this.tableName, messageID);
   }
 &nbsp;
   /**
@@ -751,20 +734,19 @@ export class MessageService {
     fromUserID: string,
     toUserID: string,
   ): Promise&lt;void&gt; {
-    const maxMessagesResource = await this.resourceService.getResource(
+    const maxMessages = await this.resourceService.getResource&lt;number&gt;(
       'MAX_MESSAGES',
     );
-    const maxMessages = parseInt(maxMessagesResource);
 &nbsp;
     const fromUserExists = await this.userService.userExists(fromUserID);
     const toUserExists = await this.userService.userExists(toUserID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (fromUserExists &amp;&amp; toUserExists) {
       const sql = `
-        DELETE FROM "${messageTableName}"
+        DELETE FROM "${this.tableName}"
           WHERE "fromUserID" = ? AND "toUserID" = ?
           AND "id" NOT IN (
-            SELECT "id" FROM "${messageTableName}"
+            SELECT "id" FROM "${this.tableName}"
               WHERE "fromUserID" = ? AND "toUserID" = ?
               ORDER BY "sendTime" DESC
               LIMIT ?
@@ -784,7 +766,7 @@ export class MessageService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 21:48:40 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:38:29 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

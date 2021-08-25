@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.49% </span>
+                <span class="strong">91.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>43/47</span>
+                <span class='fraction'>42/46</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.11% </span>
+                <span class="strong">90.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>41/45</span>
+                <span class='fraction'>40/44</span>
             </div>
         
             
@@ -223,11 +223,7 @@
 <a name='L164'></a><a href='#L164'>164</a>
 <a name='L165'></a><a href='#L165'>165</a>
 <a name='L166'></a><a href='#L166'>166</a>
-<a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a>
-<a name='L169'></a><a href='#L169'>169</a>
-<a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L167'></a><a href='#L167'>167</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -238,13 +234,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -378,7 +371,6 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -400,21 +392,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { DBService } from '../db/db.service';
 import { ResourceService } from '../resource/resource.service';
-import { UserService, userTableName } from '../user/user.service';
+import { UserService } from '../user/user.service';
 import { NBSession } from './session.interface';
 import { NBUser } from '../user/user.interface';
 import { ServiceException } from '../service.exception';
-&nbsp;
-/**
- * Session table name.
- */
-export const sessionTableName = 'NB_SESSION';
 &nbsp;
 /**
  * Session table service.
  */
 @Injectable()
 export class SessionService {
+  private readonly tableName = 'NB_SESSION';
+&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -434,7 +423,7 @@ export class SessionService {
     const userExists = await this.userService.userExists(userID);
 &nbsp;
     if (userExists) {
-      const session = await this.dbService.create&lt;NBSession&gt;(sessionTableName, {
+      const session = await this.dbService.create&lt;NBSession&gt;(this.tableName, {
         userID,
       });
       await this.deleteOldUserSessions(userID);
@@ -452,7 +441,7 @@ export class SessionService {
    */
   public async sessionExists(sessionID: string): Promise&lt;boolean&gt; {
     const session = await this.dbService.getByID&lt;NBSession&gt;(
-      sessionTableName,
+      this.tableName,
       sessionID,
     );
     return !!session;
@@ -466,7 +455,7 @@ export class SessionService {
    */
   public async getSession(sessionID: string): Promise&lt;NBSession&gt; {
     const res = await this.dbService.getByID&lt;NBSession&gt;(
-      sessionTableName,
+      this.tableName,
       sessionID,
     );
 &nbsp;
@@ -485,8 +474,8 @@ export class SessionService {
    */
   public async getUserBySessionID(sessionID: string): Promise&lt;NBUser&gt; {
     const sql = `
-      SELECT * FROM "${userTableName}" WHERE id = (
-        SELECT "userID" FROM "${sessionTableName}" WHERE id = ?
+      SELECT * FROM "NB_USER" WHERE id = (
+        SELECT "userID" FROM "${this.tableName}" WHERE id = ?
       );`;
     const params = [sessionID];
     const res = await this.dbService.execute&lt;NBUser&gt;(sql, params);
@@ -509,7 +498,7 @@ export class SessionService {
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
       return this.dbService.listByFields&lt;NBSession&gt;(
-        sessionTableName,
+        this.tableName,
         { userID },
         { fieldName: 'createTime', sortOrder: 'ASC' },
       );
@@ -524,7 +513,7 @@ export class SessionService {
    * @param sessionID The session's ID.
    */
   public async deleteSession(sessionID: string): Promise&lt;void&gt; {
-    await this.dbService.deleteByID(sessionTableName, sessionID);
+    await this.dbService.deleteByID(this.tableName, sessionID);
   }
 &nbsp;
   /**
@@ -533,7 +522,7 @@ export class SessionService {
    * @param userID The user's ID.
    */
   public async deleteUserSessions(userID: string): Promise&lt;void&gt; {
-    await this.dbService.deleteByFields(sessionTableName, { userID });
+    await this.dbService.deleteByFields(this.tableName, { userID });
   }
 &nbsp;
   /**
@@ -545,16 +534,15 @@ export class SessionService {
     const userExists = await this.userService.userExists(userID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
-      const userMaxSessionsResource = await this.resourceService.getResource(
+      const userMaxSessions = await this.resourceService.getResource&lt;number&gt;(
         'USER_MAX_SESSIONS',
       );
-      const userMaxSessions = parseInt(userMaxSessionsResource);
 &nbsp;
       const sql = `
-        DELETE FROM "${sessionTableName}"
+        DELETE FROM "${this.tableName}"
           WHERE "userID" = ?
           AND "id" NOT IN (
-            SELECT "id" FROM "${sessionTableName}"
+            SELECT "id" FROM "${this.tableName}"
               WHERE "userID" = ?
               ORDER BY "createTime" DESC
               LIMIT ?
@@ -574,7 +562,7 @@ export class SessionService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 21:48:40 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:38:29 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

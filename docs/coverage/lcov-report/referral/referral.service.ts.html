@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">89.74% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>36/40</span>
+                <span class='fraction'>35/39</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.47% </span>
+                <span class="strong">89.19% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/38</span>
+                <span class='fraction'>33/37</span>
             </div>
         
             
@@ -192,14 +192,7 @@
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
 <a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a>
-<a name='L141'></a><a href='#L141'>141</a>
-<a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L136'></a><a href='#L136'>136</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -209,13 +202,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -303,7 +293,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -335,9 +324,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -349,15 +335,12 @@ import { NBReferral } from './referral.interface';
 import { ServiceException } from '../service.exception';
 &nbsp;
 /**
- * Referral table name.
- */
-export const referralTableName = 'NB_REFERRAL';
-&nbsp;
-/**
  * Referral table service.
  */
 @Injectable()
 export class ReferralService {
+  private readonly tableName = 'NB_REFERRAL';
+&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -385,7 +368,7 @@ export class ReferralService {
       const referral = await this.getReferral(newUserID);
 &nbsp;
       if (!referral) {
-        return this.dbService.create&lt;NBReferral&gt;(referralTableName, {
+        return this.dbService.create&lt;NBReferral&gt;(this.tableName, {
           userID,
           newUserID,
         });
@@ -407,7 +390,7 @@ export class ReferralService {
     const newUserExists = await this.userService.userExists(newUserID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (newUserExists) {
-      return this.dbService.getByFields&lt;NBReferral&gt;(referralTableName, {
+      return this.dbService.getByFields&lt;NBReferral&gt;(this.tableName, {
         newUserID,
       });
     } else {
@@ -426,7 +409,7 @@ export class ReferralService {
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
       return this.dbService.listByFields&lt;NBReferral&gt;(
-        referralTableName,
+        this.tableName,
         { userID },
         { fieldName: 'referTime', sortOrder: 'ASC' },
       );
@@ -442,10 +425,9 @@ export class ReferralService {
    * @returns Whether or not the user has reachhed the referral threshold.
    */
   public async reachedReferralThreshold(userID: string): Promise&lt;boolean&gt; {
-    const referralThresholdResource = await this.resourceService.getResource(
+    const referralThreshold = await this.resourceService.getResource&lt;number&gt;(
       'REFERRAL_THRESHOLD',
     );
-    const referralThreshold = parseInt(referralThresholdResource);
 &nbsp;
     const userExists = await this.userService.userExists(userID);
 &nbsp;
@@ -468,10 +450,7 @@ export class ReferralService {
     userID: string,
     newUserID: string,
   ): Promise&lt;void&gt; {
-    await this.dbService.deleteByFields(referralTableName, {
-      userID,
-      newUserID,
-    });
+    await this.dbService.deleteByFields(this.tableName, { userID, newUserID });
   }
 &nbsp;
   /**
@@ -480,7 +459,7 @@ export class ReferralService {
    * @param userID The user's ID.
    */
   public async deleteUserReferrals(userID: string): Promise&lt;void&gt; {
-    await this.dbService.deleteByFields(referralTableName, { userID });
+    await this.dbService.deleteByFields(this.tableName, { userID });
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -490,7 +469,7 @@ export class ReferralService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 21:48:40 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:38:29 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

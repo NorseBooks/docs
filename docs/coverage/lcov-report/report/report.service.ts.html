@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.34% </span>
+                <span class="strong">94.12% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>50/53</span>
+                <span class='fraction'>48/51</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.12% </span>
+                <span class="strong">93.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>48/51</span>
+                <span class='fraction'>46/49</span>
             </div>
         
             
@@ -260,10 +260,7 @@
 <a name='L201'></a><a href='#L201'>201</a>
 <a name='L202'></a><a href='#L202'>202</a>
 <a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<a name='L204'></a><a href='#L204'>204</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">16x</span>
@@ -274,13 +271,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
@@ -307,7 +301,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -407,7 +402,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -478,15 +472,12 @@ import { NBReport } from './report.interface';
 import { ServiceException } from '../service.exception';
 &nbsp;
 /**
- * Report table name.
- */
-export const reportTableName = 'NB_REPORT';
-&nbsp;
-/**
  * Report table service.
  */
 @Injectable()
 export class ReportService {
+  private readonly tableName = 'NB_REPORT';
+&nbsp;
   constructor(
     @Inject(forwardRef(() =&gt; DBService))
     private readonly dbService: DBService,
@@ -511,9 +502,10 @@ export class ReportService {
     bookID: string,
     reason: string,
   ): Promise&lt;NBReport&gt; {
-    const reportReasonMaxLengthResource =
-      await this.resourceService.getResource('REPORT_REASON_MAX_LENGTH');
-    const reportReasonMaxLength = parseInt(reportReasonMaxLengthResource);
+    const reportReasonMaxLength =
+      await this.resourceService.getResource&lt;number&gt;(
+        'REPORT_REASON_MAX_LENGTH',
+      );
 &nbsp;
     const userExists = await this.userService.userExists(userID);
 &nbsp;
@@ -522,7 +514,7 @@ export class ReportService {
 &nbsp;
       <span class="missing-if-branch" title="else path not taken" >E</span>if (bookExists) {
         if (reason.length &gt;= 1 &amp;&amp; reason.length &lt;= reportReasonMaxLength) {
-          return this.dbService.create&lt;NBReport&gt;(reportTableName, {
+          return this.dbService.create&lt;NBReport&gt;(this.tableName, {
             bookID,
             userID,
             reason,
@@ -548,7 +540,7 @@ export class ReportService {
    */
   public async reportExists(reportID: string): Promise&lt;boolean&gt; {
     const report = await this.dbService.getByID&lt;NBReport&gt;(
-      reportTableName,
+      this.tableName,
       reportID,
     );
     return !!report;
@@ -562,7 +554,7 @@ export class ReportService {
    */
   public async getReport(reportID: string): Promise&lt;NBReport&gt; {
     const report = await this.dbService.getByID&lt;NBReport&gt;(
-      reportTableName,
+      this.tableName,
       reportID,
     );
 &nbsp;
@@ -579,7 +571,7 @@ export class ReportService {
    * @returns All reports.
    */
   public async getReports(): Promise&lt;NBReport[]&gt; {
-    return this.dbService.list&lt;NBReport&gt;(reportTableName, {
+    return this.dbService.list&lt;NBReport&gt;(this.tableName, {
       fieldName: 'reportTime',
       sortOrder: 'ASC',
     });
@@ -596,7 +588,7 @@ export class ReportService {
     userID: string,
     bookID: string,
   ): Promise&lt;boolean&gt; {
-    const report = await this.dbService.getByFields&lt;NBReport&gt;(reportTableName, {
+    const report = await this.dbService.getByFields&lt;NBReport&gt;(this.tableName, {
       userID,
       bookID,
     });
@@ -610,13 +602,12 @@ export class ReportService {
    * @returns Whether or not the user has recently reported a book.
    */
   public async userReportedRecently(userID: string): Promise&lt;boolean&gt; {
-    const userReportCooldownResource = await this.resourceService.getResource(
+    const userReportCooldown = await this.resourceService.getResource&lt;number&gt;(
       'USER_REPORT_COOLDOWN',
     );
-    const userReportCooldown = parseInt(userReportCooldownResource);
 &nbsp;
     const report = await this.dbService.getCustom&lt;NBReport&gt;(
-      reportTableName,
+      this.tableName,
       '"userID" = ? AND EXTRACT(EPOCH FROM NOW() - "reportTime") &lt;= ?',
       [userID, userReportCooldown],
     );
@@ -633,7 +624,7 @@ export class ReportService {
     const userExists = await this.userService.userExists(userID);
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (userExists) {
-      return this.dbService.listByFields&lt;NBReport&gt;(reportTableName, { userID });
+      return this.dbService.listByFields&lt;NBReport&gt;(this.tableName, { userID });
     } else {
 <span class="cstat-no" title="statement not covered" >      throw new ServiceException('User does not exist');</span>
     }
@@ -649,7 +640,7 @@ export class ReportService {
     const bookExists = await this.bookService.bookExists(bookID);
 &nbsp;
     if (bookExists) {
-      return this.dbService.listByFields&lt;NBReport&gt;(reportTableName, { bookID });
+      return this.dbService.listByFields&lt;NBReport&gt;(this.tableName, { bookID });
     } else {
       throw new ServiceException('Book does not exist');
     }
@@ -661,7 +652,7 @@ export class ReportService {
    * @param reportID The report's ID.
    */
   public async deleteReport(reportID: string): Promise&lt;void&gt; {
-    await this.dbService.deleteByID(reportTableName, reportID);
+    await this.dbService.deleteByID(this.tableName, reportID);
   }
 &nbsp;
   /**
@@ -682,7 +673,7 @@ export class ReportService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 25 2021 21:48:40 GMT+0000 (Coordinated Universal Time)
+                at Wed Aug 25 2021 22:38:29 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
