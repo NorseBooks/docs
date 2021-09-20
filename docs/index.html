@@ -74,10 +74,16 @@
 					<li><a href="#prerequisites">Prerequisites</a></li>
 					<li><a href="#cloning-the-project">Cloning the Project</a></li>
 					<li><a href="#local-deployment">Local Deployment</a></li>
+					<li><a href="#testing">Testing</a></li>
 					<li><a href="#frontend">Frontend</a></li>
 					<li><a href="#backend">Backend</a></li>
+					<li><a href="#scripts">Scripts</a></li>
 					<li><a href="#database">Database</a></li>
 					<li><a href="#deployment">Deployment</a></li>
+					<li><a href="#coverage">Coverage</a></li>
+					<li><a href="#documentation">Documentation</a></li>
+					<li><a href="#error-pages">Error Pages</a></li>
+					<li><a href="#github-actions">GitHub Actions</a></li>
 					<li><a href="#license">License</a></li>
 				</ul>
 				<a href="#prerequisites" id="prerequisites" style="color: inherit; text-decoration: none;">
@@ -115,6 +121,12 @@
 				<pre><code class="language-bash"><span style="color: #000000">$ heroku </span><span style="color: #0000FF">local</span><span style="color: #000000"> web</span>
 </code></pre>
 				<p>After the local deployment, the built application can be accessed at <a href="http://localhost:3000/">localhost:3000</a>.</p>
+				<a href="#testing" id="testing" style="color: inherit; text-decoration: none;">
+					<h3>Testing</h3>
+				</a>
+				<p>We primarily use <a href="https://jestjs.io/">Jest</a> for automated testing. The tests can be run using NPM:</p>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm run </span><span style="color: #795E26">test</span>
+</code></pre>
 				<a href="#frontend" id="frontend" style="color: inherit; text-decoration: none;">
 					<h3>Frontend</h3>
 				</a>
@@ -123,6 +135,28 @@
 					<h3>Backend</h3>
 				</a>
 				<p>Our backend uses <a href="https://nestjs.com/">Nest</a> to expose API endpoints for the frontend to access.</p>
+				<a href="#scripts" id="scripts" style="color: inherit; text-decoration: none;">
+					<h3>Scripts</h3>
+				</a>
+				<p>The repository contains a number of Python scripts found in the <code>scripts</code> directory. Scripts can be called directly or using one of either a bash/batch script for convenience.</p>
+				<p>Bash:</p>
+				<pre><code class="language-bash"><span style="color: #000000">script.sh [script name] [script arguments...]</span>
+</code></pre>
+				<p>Batch:</p>
+				<pre><code class="language-batch">script [script name] [script arguments...]
+</code></pre>
+				<a href="#environment-variables" id="environment-variables" style="color: inherit; text-decoration: none;">
+					<h4>Environment Variables</h4>
+				</a>
+				<p>The <code>env.py</code> script provides useful functions for acquiring variables from the environment and from <code>.env</code> files. It is not meant to be invoked directoy, but rather to be used from other scripts.</p>
+				<a href="#admin" id="admin" style="color: inherit; text-decoration: none;">
+					<h4>Admin</h4>
+				</a>
+				<p>The <code>admin.py</code> script can be used to give and revoke a user&#39;s admin privileges, and to list the current admins. Run with the <code>-h</code> flag for usage help.</p>
+				<a href="#backup" id="backup" style="color: inherit; text-decoration: none;">
+					<h4>Backup</h4>
+				</a>
+				<p>The <code>backup.py</code> script is used to create backups of the database in JSON format. Run with the <code>-h</code> flag for usage help.</p>
 				<a href="#database" id="database" style="color: inherit; text-decoration: none;">
 					<h3>Database</h3>
 				</a>
@@ -131,6 +165,25 @@
 					<h3>Deployment</h3>
 				</a>
 				<p>The application is deployed to <a href="https://heroku.com/">Heroku</a>. It can be found at <a href="https://nb-2.herokuapp.com/">nb-2.herokuapp.com</a>.</p>
+				<a href="#coverage" id="coverage" style="color: inherit; text-decoration: none;">
+					<h3>Coverage</h3>
+				</a>
+				<p>The coverage numbers are shown above. A more detailed coverage report is hosted at <a href="https://norsebooks.github.io/coverage/">norsebooks.github.io/coverage</a>. The coverage report repository exists <a href="https://github.com/NorseBooks/coverage">here</a>. Coverage reports are generated automatically when the tests run.</p>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h3>Documentation</h3>
+				</a>
+				<p>The <a href="https://typedoc.org/">TypeDoc</a> package is used to generate the project code documentation. It includes annotations for nearly every significant function, class, etc. Documentation can be generated manually with:</p>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm run document</span>
+</code></pre>
+				<p>The documentation is hosted at <a href="https://norsebooks.github.io/docs/">norsebooks.github.io/docs</a>. The documentation repository exists <a href="https://github.com/NorseBooks/docs">here</a>. The documentation is generated automatically when the tests run.</p>
+				<a href="#error-pages" id="error-pages" style="color: inherit; text-decoration: none;">
+					<h3>Error Pages</h3>
+				</a>
+				<p>The error pages are a fallback to account for scenarios in which the application goes down. If the application experiences a fatal error and crashes, the error page will display. If the application is set to maintenance mode in the Heroku control panel, the maintenance page will display. The error pages repository exists <a href="https://github.com/NorseBooks/error-pages/">here</a>.</p>
+				<a href="#github-actions" id="github-actions" style="color: inherit; text-decoration: none;">
+					<h3>GitHub Actions</h3>
+				</a>
+				<p>GitHub Actions runs jobs automatically on any push or pull request to the <code>main</code> and <code>dev</code> branches. This includes running our automated tests, as well as generating coverage reports and documentation, which are pushed to their respective repositories.</p>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
