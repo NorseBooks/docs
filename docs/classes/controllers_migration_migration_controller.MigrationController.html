@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DepartmentController | norsebooks</title>
+	<title>MigrationController | norsebooks</title>
 	<meta name="description" content="Documentation for norsebooks">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">norsebooks</a>
 				</li>
 				<li>
-					<a href="../modules/controllers_department_department_controller.html">controllers/department/department.controller</a>
+					<a href="../modules/controllers_migration_migration_controller.html">controllers/migration/migration.controller</a>
 				</li>
 				<li>
-					<a href="controllers_department_department_controller.DepartmentController.html">DepartmentController</a>
+					<a href="controllers_migration_migration_controller.MigrationController.html">MigrationController</a>
 				</li>
 			</ul>
-			<h1>Class DepartmentController</h1>
+			<h1>Class MigrationController</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Department controller.</p>
+						<p>Migration controller.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">DepartmentController</span>
+						<span class="target">MigrationController</span>
 					</li>
 				</ul>
 			</section>
@@ -90,14 +90,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="controllers_department_department_controller.DepartmentController.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="controllers_migration_migration_controller.MigrationController.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controllers_department_department_controller.DepartmentController.html#getDepartment" class="tsd-kind-icon">get<wbr>Department</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controllers_department_department_controller.DepartmentController.html#getDepartments" class="tsd-kind-icon">get<wbr>Departments</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controllers_migration_migration_controller.MigrationController.html#setBookImage" class="tsd-kind-icon">set<wbr>Book<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controllers_migration_migration_controller.MigrationController.html#setUserImage" class="tsd-kind-icon">set<wbr>User<wbr>Image</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,22 +109,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Department<wbr>Controller<span class="tsd-signature-symbol">(</span>departmentService<span class="tsd-signature-symbol">: </span><a href="services_department_department_service.DepartmentService.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="controllers_department_department_controller.DepartmentController.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Migration<wbr>Controller<span class="tsd-signature-symbol">(</span>userService<span class="tsd-signature-symbol">: </span><a href="services_user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a>, bookService<span class="tsd-signature-symbol">: </span><a href="services_book_book_service.BookService.html" class="tsd-signature-type" data-tsd-kind="Class">BookService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="controllers_migration_migration_controller.MigrationController.html" class="tsd-signature-type" data-tsd-kind="Class">MigrationController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/8c66384/src/controllers/department/department.controller.ts#L18">src/controllers/department/department.controller.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/8c66384/src/controllers/migration/migration.controller.ts#L20">src/controllers/migration/migration.controller.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>departmentService: <a href="services_department_department_service.DepartmentService.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentService</a></h5>
+									<h5>userService: <a href="services_user_user_service.UserService.html" class="tsd-signature-type" data-tsd-kind="Class">UserService</a></h5>
+								</li>
+								<li>
+									<h5>bookService: <a href="services_book_book_service.BookService.html" class="tsd-signature-type" data-tsd-kind="Class">BookService</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="controllers_department_department_controller.DepartmentController.html" class="tsd-signature-type" data-tsd-kind="Class">DepartmentController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="controllers_migration_migration_controller.MigrationController.html" class="tsd-signature-type" data-tsd-kind="Class">MigrationController</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -132,57 +135,76 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getDepartment" class="tsd-anchor"></a>
-					<h3>get<wbr>Department</h3>
+					<a name="setBookImage" class="tsd-anchor"></a>
+					<h3>set<wbr>Book<wbr>Image</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Department<span class="tsd-signature-symbol">(</span>departmentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Book<wbr>Image<span class="tsd-signature-symbol">(</span>bookID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, imageData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/8c66384/src/controllers/department/department.controller.ts#L27">src/controllers/department/department.controller.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/8c66384/src/controllers/migration/migration.controller.ts#L46">src/controllers/migration/migration.controller.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the name of a department.</p>
+									<p>Set a book&#39;s image.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>departmentID: <span class="tsd-signature-type">number</span></h5>
+									<h5>bookID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The department ID.</p>
+										<p>The book&#39;s ID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>imageData: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The image data for the book.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The name of the department.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getDepartments" class="tsd-anchor"></a>
-					<h3>get<wbr>Departments</h3>
+					<a name="setUserImage" class="tsd-anchor"></a>
+					<h3>set<wbr>User<wbr>Image</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Departments<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/services_department_department_interface.NBDepartment.html" class="tsd-signature-type" data-tsd-kind="Interface">NBDepartment</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>User<wbr>Image<span class="tsd-signature-symbol">(</span>userID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, imageData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/8c66384/src/controllers/department/department.controller.ts#L39">src/controllers/department/department.controller.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/NorseBooks/NorseBooks/blob/8c66384/src/controllers/migration/migration.controller.ts#L32">src/controllers/migration/migration.controller.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get all departments.</p>
+									<p>Set a user&#39;s image.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/services_department_department_interface.NBDepartment.html" class="tsd-signature-type" data-tsd-kind="Interface">NBDepartment</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>All departments.</p>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>userID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The user&#39;s ID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>imageData: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The image data for the user.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -195,7 +217,7 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/controllers_department_department_controller.html">controllers/department/department.controller</a>
+						<a href="../modules/controllers_migration_migration_controller.html">controllers/migration/migration.controller</a>
 					</li>
 				</ul>
 			</nav>
@@ -204,16 +226,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="controllers_department_department_controller.DepartmentController.html" class="tsd-kind-icon">Department<wbr>Controller</a>
+						<a href="controllers_migration_migration_controller.MigrationController.html" class="tsd-kind-icon">Migration<wbr>Controller</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="controllers_department_department_controller.DepartmentController.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="controllers_migration_migration_controller.MigrationController.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="controllers_department_department_controller.DepartmentController.html#getDepartment" class="tsd-kind-icon">get<wbr>Department</a>
+								<a href="controllers_migration_migration_controller.MigrationController.html#setBookImage" class="tsd-kind-icon">set<wbr>Book<wbr>Image</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="controllers_department_department_controller.DepartmentController.html#getDepartments" class="tsd-kind-icon">get<wbr>Departments</a>
+								<a href="controllers_migration_migration_controller.MigrationController.html#setUserImage" class="tsd-kind-icon">set<wbr>User<wbr>Image</a>
 							</li>
 						</ul>
 					</li>
